@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "outDir": "./lib",
+    "module": "esnext",
+    "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "declaration": true
+  },
+  "include": [
+    "src/**/*",
+  ],
+  "exclude": ["node_modules", "lib"],
+  "types": [
+    "mocha",
+    "node"
+  ]
+}
