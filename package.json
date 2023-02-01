@@ -3,11 +3,16 @@
   "version": "0.1.0",
   "packageManager": "pnpm@7.26.3",
   "description": "Encode an image to sound and view it as a spectrogram - turn your images into music",
-  "main": "./lib/index.js",
+  "type": "module",
+  "source": "src/index.ts",
+  "main": "./lib/index.cjs",
+  "exports": "./lib/index.modern.mjs",
+  "module": "./lib/index.module.mjs",
+  "unpkg": "./lib/index.umd.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsc -w",
+    "build": "microbundle",
+    "dev": "microbundle --no-sourcemap -f esm watch",
     "test": "mocha"
   },
   "repository": {
@@ -34,6 +39,7 @@
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.18",
     "chai": "^4.3.7",
+    "microbundle": "^0.15.1",
     "mocha": "^10.2.0",
     "semantic-release": "^20.1.0",
     "ts-node": "^10.9.1",
