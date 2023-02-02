@@ -5,6 +5,7 @@
     "ts-node/register"
   ],
   "node-option": [
+    "no-warnings=ExperimentalWarning",
     "experimental-specifier-resolution=node",
     "loader=ts-node/esm"
   ]

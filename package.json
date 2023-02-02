@@ -12,7 +12,7 @@
   "types": "./lib/index.d.ts",
   "scripts": {
     "build": "microbundle",
-    "dev": "microbundle --no-sourcemap -f esm watch",
+    "dev": "microbundle --no-sourcemap -f es watch",
     "test": "mocha"
   },
   "repository": {
@@ -48,5 +48,8 @@
   "files": [
     "dist",
     "README.md"
-  ]
+  ],
+  "dependencies": {
+    "image-decode": "^1.2.2"
+  }
 }

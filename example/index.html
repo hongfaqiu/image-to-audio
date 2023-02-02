@@ -30,22 +30,27 @@
     </a>
   </h1>
 
-  <button id="generateBtn">generate audio</button>
+  <div class="images">
+    <img src="../assets/fractal.jpg" />
+    <img src="../assets/mona.jpg" />
+  </div>
+
+  <button id="convertBtn">convert to audio</button>
 
   <div id="audioControls"></div>
+  <!-- <script src="../src/image-decode.js"></script> -->
+  <!-- <script src="../lib/index.umd.js"></script> -->
 
   <script type="module">
-    import { AudioEncoder } from '../lib/index.module.mjs';
+    import { imageToAudio } from '../lib/index.module.mjs';
 
-    document.getElementById('generateBtn').onclick = () => {
-      const buffer = new Float32Array(88200);
-      for (let i = 0; i < buffer.length; i++) { 
-        buffer[i] = Math.random() - 0.5 
-      }
+    document.getElementById('convertBtn').onclick = async () => {
+      const reader = new FileReader()
+      const res = await fetch('../assets/mona.jpg')
+      const buffer = await res.arrayBuffer()
 
-      const encoder = new AudioEncoder()
-      encoder.encode([buffer])
-      const blob = encoder.finish()
+      console.log(imageToAudio)
+      const blob = imageToAudio(buffer)
       
       const src = window.URL.createObjectURL(blob)
       const audio = new Audio()

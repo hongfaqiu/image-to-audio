@@ -11,7 +11,7 @@ export type AudioEncoderOptions = {
   numChannels?: number;
 }
 
-export default class AudioEncoder {
+export class AudioEncoder {
   readonly sampleRate: number;
   readonly numChannels: number;
   readonly options: AudioEncoderOptions;
@@ -76,3 +76,5 @@ export default class AudioEncoder {
     delete this.dataViews;
   }
 }
+
+export default AudioEncoder
