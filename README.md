@@ -98,6 +98,7 @@ class AudioEncoder {
     readonly options: AudioEncoderOptions;
 
     constructor(options?: AudioEncoderOptions);
+    get dataViews(): DataView[];
     encode(buffer: Float32Array[]): DataView;
     finish(mimeType?: string): Blob;
     destory(): void;

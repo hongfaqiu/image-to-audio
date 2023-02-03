@@ -20,6 +20,7 @@ describe('encode buffer to blob', () => {
   })
 
   it('should destroyed', () => {
+    encoder.destory()
     expect(encoder.dataViews).eql(undefined)
   })
 

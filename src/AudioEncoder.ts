@@ -28,6 +28,10 @@ export class AudioEncoder {
     this.numChannels = this.options.numChannels;
   }
 
+  get dataViews() {
+    return this._dataViews
+  }
+
   encode(buffer: Float32Array[]) {
     let len = buffer[0].length,
       nCh = this.numChannels,
