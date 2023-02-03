@@ -1,6 +1,6 @@
 {
   "name": "image-to-audio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "packageManager": "pnpm@7.26.3",
   "description": "Encode an image to sound and view it as a spectrogram - turn your images into music",
   "type": "module",
