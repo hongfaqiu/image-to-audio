@@ -15,11 +15,7 @@
     "declaration": true
   },
   "include": [
-    "test/**/*",
+    "src/**/*",
   ],
   "exclude": ["node_modules", "lib"],
-  "types": [
-    "mocha",
-    "node"
-  ]
 }

@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { AudioEncoder } from '../src';
+import { AudioEncoder } from 'image-to-audio';
 
 describe('encode buffer to blob', () => {
   const encoder = new AudioEncoder()

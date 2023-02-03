@@ -1,9 +1,9 @@
-import imageToAudio from '../src';
+import imageToAudio from 'image-to-audio';
 import fs from 'fs';
 import path from 'path';
 import { expect } from 'chai';
 
-const assetsDirectory = path.resolve(process.cwd(), "assets");
+const assetsDirectory = path.resolve(process.cwd(), "example/public");
 
 describe('image to audio', () => {
   const image = fs.readFileSync(path.join(assetsDirectory, 'mona.jpg'))
