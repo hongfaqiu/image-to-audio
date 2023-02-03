@@ -47,8 +47,10 @@ type ImageToAudioOptions = {
     encodeFunc?: (pixels: Uint8Array[]) => number;
     /** sampling rate [Hz], defaults to 44100Hz */
     sampleRate?: number;
-    /** seconds of the audio, defaults to image's width / 10 */
-    seconds?: number;
+    /** Beat Per Minute, defaults to 60 */
+    bpm?: number;
+    /** beat, defaults to 1/4 */
+    beat?: number;
 };
 
 type ImageInputTypes = ArrayBuffer | Buffer | Uint8Array | string;
@@ -140,6 +142,16 @@ pnpm test
 ```
 
 ## Demo
+
+[online Demo](https://image-to-audio.vercel.app/)
+
+Launch the app in the example folder, and then visit <http://localhost:3000/>
+
+```node
+pnpm install
+cd example
+pnpm start
+```
 
 ## Credits
 

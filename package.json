@@ -2,6 +2,7 @@
   "name": "root",
   "private": true,
   "npmClient": "pnpm",
+  "packageManager": "pnpm@7.26.3",
   "workspaces": [
     "packages/*"
   ],
