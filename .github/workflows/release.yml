@@ -1,4 +1,8 @@
 name: Release
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 on:
   push:
     branches:
@@ -33,6 +37,6 @@ jobs:
         
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: npx semantic-release
