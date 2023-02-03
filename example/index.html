@@ -38,18 +38,14 @@
   <button id="convertBtn">convert to audio</button>
 
   <div id="audioControls"></div>
-  <!-- <script src="../src/image-decode.js"></script> -->
-  <!-- <script src="../lib/index.umd.js"></script> -->
 
   <script type="module">
     import { imageToAudio } from '../lib/index.module.mjs';
 
     document.getElementById('convertBtn').onclick = async () => {
-      const reader = new FileReader()
       const res = await fetch('../assets/mona.jpg')
       const buffer = await res.arrayBuffer()
 
-      console.log(imageToAudio)
       const blob = imageToAudio(buffer)
       
       const src = window.URL.createObjectURL(blob)

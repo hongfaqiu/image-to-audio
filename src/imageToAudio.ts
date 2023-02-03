@@ -9,18 +9,23 @@ export type ImageToAudioOptions = {
   encodeData?: (data: DecodedImage) => Uint8Array[][];
   /** transform pixel [r, g, b, a] to number range in [-1, 1] */
   encodeFunc?: (pixels: Uint8Array[]) => number;
+  /** sampling rate [Hz], defaults to 44100Hz */
   sampleRate?: number;
+  /** seconds of the audio, defaults to image's width / 10 */
   seconds?: number;
 }
 
 export function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptions) {
+
+  const imageData = decodeImage(input, options?.mimeType);
+
+  const seconds = imageData.width / 10;
+
   const opts = {
     sampleRate: 44100,
-    seconds: 3,
+    seconds,
     ...options,
   }
-
-  const imageData = decodeImage(input, opts.mimeType);
 
   const freqs = encodeImage2Freqs(imageData, opts);
 

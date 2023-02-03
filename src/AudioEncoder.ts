@@ -15,8 +15,8 @@ export class AudioEncoder {
   readonly sampleRate: number;
   readonly numChannels: number;
   readonly options: AudioEncoderOptions;
-  dataViews: DataView[] = [];
-  numSamples = 0;
+  private _dataViews: DataView[] = [];
+  private _numSamples = 0;
 
   constructor(options?: AudioEncoderOptions) {
     this.options = {
@@ -41,14 +41,14 @@ export class AudioEncoder {
         offset += 2;
       }
     
-    this.dataViews.push(view);
-    this.numSamples += len;
+    this._dataViews.push(view);
+    this._numSamples += len;
 
     return view;
   };
 
   finish(mimeType: string = 'audio/wav') {
-    const dataSize = this.numChannels * this.numSamples * 2,
+    const dataSize = this.numChannels * this._numSamples * 2,
       view = new DataView(new ArrayBuffer(44));
     
     setString(view, 0, 'RIFF');
@@ -64,16 +64,16 @@ export class AudioEncoder {
     view.setUint16(34, 16, true);
     setString(view, 36, 'data');
     view.setUint32(40, dataSize, true);
-    this.dataViews.unshift(view);
+    this._dataViews.unshift(view);
 
-    const blob = new Blob(this.dataViews, { type: mimeType });
-    this.destory();
+    const blob = new Blob(this._dataViews, { type: mimeType });
+    this._dataViews = []
 
     return blob;
   };
 
   destory() {
-    delete this.dataViews;
+    delete this._dataViews;
   }
 }
 
