@@ -1,6 +1,9 @@
 {
   "extension": ["js", "ts"],
-  "recursive": "test/*.test.ts",
+  "recursive": [
+    "test/*.test.ts",
+    "packages/*/test/*.test.ts"
+  ],
   "require": [
     "ts-node/register"
   ],

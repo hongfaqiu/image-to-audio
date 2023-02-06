@@ -5,20 +5,19 @@
     "@semantic-release/release-notes-generator",
     "@semantic-release/changelog",
     [
-      "@semantic-release/npm", {
-        "pkgRoot": "packages/image-to-audio"
-      }
+      "@semrel-extra/npm"
     ],
     [
       "@semantic-release/git",
       {
         "assets": [
-          "packages/image-to-audio/package.json",
+          "package.json",
           "CHANGELOG.md"
         ],
         "message": "release: ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
     "@semantic-release/github"
-  ]
+  ],
+  "noCi": true
 }

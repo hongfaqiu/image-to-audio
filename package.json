@@ -9,17 +9,19 @@
   "type": "module",
   "scripts": {
     "build:lib": "pnpm run --dir packages/image-to-audio build",
-    "test": "mocha"
+    "test": "mocha",
+    "release": "multi-semantic-release --sequential-init --ignore-private-packages=true"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.2",
     "@semantic-release/git": "^10.0.1",
+    "@semrel-extra/npm": "^1.2.2",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "@types/node": "^18.11.18",
     "chai": "^4.3.7",
     "mocha": "^10.2.0",
-    "semantic-release": "^20.1.0",
+    "multi-semantic-release": "^3.0.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.9.5"
   },
