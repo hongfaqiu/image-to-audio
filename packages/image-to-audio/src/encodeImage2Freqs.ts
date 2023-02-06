@@ -20,6 +20,13 @@ function encodePixel(pixels: Uint8Array[]): number {
   return freq
 }
 
+/**
+ * encode image data to sound frequency array
+ * @param data image data decode from image
+ * @param [options.encodeData] rebuild encode data, defaults arrange from left to right
+ * @param [options.encodeFunc] transform pixel [r, g, b, a] to number range in [-1, 1]
+ * @returns sound tone array
+ */
 export function encodeImage2Freqs(data: DecodedImage, options?: EncodeImage2FreqsOptions) {
   let encodeData: Uint8Array[][] = []
   if (options.encodeData) {

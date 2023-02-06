@@ -11,6 +11,11 @@ export type AudioEncoderOptions = {
   numChannels?: number;
 }
 
+/**
+ * Audio encoder
+ * @param [options.sampleRate] sampling rate [Hz], defaults to 44100Hz.
+ * @param [options.numChannels] number of audio channels, defaults to 1.
+ */
 export class AudioEncoder {
   readonly sampleRate: number;
   readonly numChannels: number;

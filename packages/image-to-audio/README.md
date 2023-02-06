@@ -1,12 +1,10 @@
 # image-to-audio
 
-Encode an image to sound and view it as a spectrogram - turn your images into music
+Encode an image(PNG, GIF, BMP, JPEG, TIFF) into music
 
 [![gzip size](http://img.badgesize.io/https://unpkg.com/image-to-audio?compression=gzip&label=gzip)](https://unpkg.com/image-to-audio) ![npm latest version](https://img.shields.io/npm/v/image-to-audio.svg) ![license](https://img.shields.io/npm/l/image-to-audio)
 
 ## Install  
-
-For node.js
 
 ```bash
 #npm
@@ -16,8 +14,6 @@ npm install --save image-to-audio
 Browser(umd) dont support yet.
 
 ### Usage
-
-For node.js
 
 ```ts
 import { imageToAudio } from 'image-to-audio';
@@ -126,10 +122,10 @@ Provides a function to arragement sound's frequency(tone) array into wav audio d
 function freqs2AudioData(freqs: number[], options: Freqs2AudioOptions): Float32Array;
 
 type Freqs2AudioOptions = {
-    /** sampling rate [Hz], defaults to 44100Hz */
-    sampleRate?: number;
-    /** seconds of the audio, defaults to image's width / 10 */
-    seconds?: number;
+    /** sampling rate [Hz] */
+    sampleRate: number;
+    /** seconds of the audio */
+    seconds: number;
 };
 ```
 

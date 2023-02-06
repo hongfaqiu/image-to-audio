@@ -3,6 +3,12 @@ export type Freqs2AudioOptions = {
   seconds: number;
 }
 
+/**
+ * arragement sound's frequency(tone) array into wav audio data
+ * @param freqs array of sound frequency
+ * @param [options.sampleRate] sampling rate [Hz]
+ * @params [options.seconds] seconds of the audio
+ */
 export function freqs2AudioData(freqs: number[], options: Freqs2AudioOptions) {
   const { sampleRate, seconds } = options;
   const totalSamples = sampleRate * seconds;

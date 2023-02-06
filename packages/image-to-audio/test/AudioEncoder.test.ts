@@ -14,9 +14,9 @@ describe('encode buffer to blob', () => {
     expect(encoder.dataViews.length).eql(1)
   })
 
-  it('should return blob', () => {
+  it('should return wav blob', () => {
     const blob = encoder.finish()
-    expect(blob instanceof Blob).eql(true)
+    expect(blob.type).eql('audio/wav')
   })
 
   it('should destroyed', () => {

@@ -1,7 +1,7 @@
 {
   "name": "image-to-audio",
   "version": "1.0.1",
-  "description": "Encode an image to sound and view it as a spectrogram - turn your images into music",
+  "description": "Encode an image(PNG, GIF, BMP, JPEG, TIFF) into music",
   "type": "module",
   "source": "src/index.ts",
   "main": "./lib/index.cjs",

@@ -17,6 +17,17 @@ export type ImageToAudioOptions = {
   beat?: number;
 }
 
+/**
+ * This api provides function to simply change image to audio, which will decode the image vertically from left to right and encode pixels to the digital analog signal.
+ * @param input buffer can be any binary data container: ArrayBuffer | Buffer | Uint8Array | base64 string
+ * @param [options.mimeType]
+ * @param [options.encodeData] rebuild encode data, defaults arrange from left to right
+ * @param [options.encodeFunc] transform pixel [r, g, b, a] to number range in [-1, 1]
+ * @param [options.sampleRate = 44100] sampling rate [Hz], defaults to 44100Hz
+ * @param [options.bpm = 60] Beat Per Minute, defaults to 60
+ * @param [options.beat = 1 / 4] beat, defaults to 1/4
+ * @returns wav audio data(Blob)
+ */
 export function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptions) {
   const opts = {
     sampleRate: 44100,

@@ -9,7 +9,7 @@ describe('image to audio', () => {
   const image = fs.readFileSync(path.join(assetsDirectory, 'mona.jpg'))
   const blob = imageToAudio(image)
 
-  it('should be blob', () => {
-    expect(blob instanceof Blob).eql(true)
+  it('should be wav blob', () => {
+    expect(blob.type).eql('audio/wav')
   })
 })
