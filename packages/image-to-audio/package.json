@@ -1,6 +1,6 @@
 {
   "name": "image-to-audio",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "Encode an image(PNG, GIF, BMP, JPEG, TIFF) into music",
   "type": "module",
   "source": "src/index.ts",
