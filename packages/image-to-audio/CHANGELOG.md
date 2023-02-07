@@ -1,3 +1,10 @@
+# image-to-audio [1.2.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.1.0...image-to-audio@1.2.0) (2023-02-07)
+
+
+### Features
+
+* imageToAudio func return all messages ([e2dca24](https://github.com/hongfaqiu/image-to-audio/commit/e2dca242e0046d03380a2d2a9b1969cf900f6ecc))
+
 # image-to-audio [1.1.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.0.0...image-to-audio@1.1.0) (2023-02-06)
 
 
