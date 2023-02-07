@@ -78,8 +78,9 @@ const ImageSelector: React.FC<ImageSelectorProps> = ({
             setValue(fileList[0]?.url)
           }
         }}
-        onSuccess={(res, file, fileList) => {
-          setValue(fileList[fileList.length - 1].url)
+        afterUpload={(obj) => {
+          setValue(obj.file.url)
+          return {}
         }}
       >
         <IconPlus size="extra-large" />

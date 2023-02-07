@@ -2,22 +2,27 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   .header {
     margin: 8px;
   }
   .content {
     height: 100%;
+    overflow: auto;
     margin: 8px;
     .left, .right {
       height: 100%;
       padding: 20px;
       overflow: auto;
       border: 1px solid var(--semi-color-border);
+
+      @media (max-width: 992px) {
+        height: auto;
+      }
     }
     .spin {
       width: 100%;
       min-height: 200px;
     }
-    
   }
 }

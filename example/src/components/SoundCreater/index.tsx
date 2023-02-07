@@ -2,17 +2,19 @@ import { Button, Form } from "@douyinfe/semi-ui";
 import { FormApi } from "@douyinfe/semi-ui/lib/es/form";
 import { ImageToAudioOptions } from "image-to-audio"
 import { useCallback, useRef } from "react";
-import { ImageSelectorItem, initList } from "../ImageSelector";
+import { ImageSelectorItem } from "../ImageSelector";
 
 export type SoundCreaterParams = {
   url: string;
 } & ImageToAudioOptions
 
 export type SoundCreaterProps = {
+  initValues?: SoundCreaterParams;
   onSubmit?: (values: SoundCreaterParams) => void;
 }
 
 const SoundCreater: React.FC<SoundCreaterProps> = ({
+  initValues,
   onSubmit
 }) => {
   const $form = useRef<FormApi<SoundCreaterParams>>();
@@ -25,13 +27,7 @@ const SoundCreater: React.FC<SoundCreaterProps> = ({
   
   return (
     <Form<SoundCreaterParams>
-      initValues={{
-        url: initList[0].url as string,
-        sampleRate: 8000,
-        maxFreq: 20000,
-        bpm: 60,
-        beat: 1 / 4
-      }}
+      initValues={initValues}
       getFormApi={(formApi: FormApi<any> | undefined) => ($form.current = formApi)}
       onSubmit={submit}
     >

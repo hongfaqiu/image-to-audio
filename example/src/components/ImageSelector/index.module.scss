@@ -1,5 +1,17 @@
 .imageSelector {
-
+  :global {
+    .semi-upload-picture-file-list {
+      width: 100%;
+    }
+    .semi-upload-picture-add, .semi-upload-picture-file-card {
+      width: 200px;
+      height: 200px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
 }
 .thumbnail {
   height: 100%;
