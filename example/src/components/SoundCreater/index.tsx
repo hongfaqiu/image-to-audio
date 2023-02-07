@@ -27,7 +27,7 @@ const SoundCreater: React.FC<SoundCreaterProps> = ({
     <Form<SoundCreaterParams>
       initValues={{
         url: initList[0].url as string,
-        sampleRate: 44100,
+        sampleRate: 8000,
         maxFreq: 20000,
         bpm: 60,
         beat: 1 / 4

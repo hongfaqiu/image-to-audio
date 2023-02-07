@@ -1,6 +1,6 @@
 # image-to-audio
 
-![image-to-audio](./pictures/image-to-audio.png)
+![image-to-audio](https://s1.ax1x.com/2023/02/07/pSg4d2t.png)
 
 Encode an image(PNG, GIF, BMP, JPEG, TIFF) into music
 
@@ -28,11 +28,11 @@ const blob = imageToAudio(buffer).blob
 
 ### API
 
+#### imageToAudio
+
 This api provides function to simply change image to audio, which will decode the image vertically from left to right and encode pixels to the digital analog signal.
 
 Or you could use the following apis to make up your own decode-encode function, reference the [code](./src/imageToAudio.ts).
-
-#### imageToAudio
 
 ```ts
 function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptions): {
