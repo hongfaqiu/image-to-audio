@@ -50,11 +50,11 @@ export default function Home() {
           </Link>
         </h1>
         <Row className={styles.content}>
-          <Col md={24} lg={12} className={styles.left}>
+          <Col md={24} lg={8} className={styles.left}>
             <SoundCreater onSubmit={convertImage} />
           </Col>
 
-          <Col md={24} lg={12} className={styles.right}>
+          <Col md={24} lg={16} className={styles.right}>
             <Spin wrapperClassName={styles.spin} spinning={loading} tip='Please wait'>
               {!!audio && <SoundPlayer src={audio} />}
             </Spin>

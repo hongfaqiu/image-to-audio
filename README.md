@@ -1,8 +1,10 @@
 # image-to-audio
 
+![image-to-audio](./pictures/image-to-audio.png)
+
 Encode an image(PNG, GIF, BMP, JPEG, TIFF) into music
 
-[![gzip size](http://img.badgesize.io/https://unpkg.com/image-to-audio?compression=gzip&label=gzip)](https://unpkg.com/image-to-audio) ![npm latest version](https://img.shields.io/npm/v/image-to-audio.svg) ![license](https://img.shields.io/npm/l/image-to-audio)
+![npm latest version](https://img.shields.io/npm/v/image-to-audio.svg) ![license](https://img.shields.io/npm/l/image-to-audio)
 
 ## Install  
 
