@@ -9,6 +9,8 @@ export type ImageToAudioOptions = {
   encodeData?: (data: DecodedImage) => Uint8Array[][];
   /** transform pixel [r, g, b, a] to number range in [-1, 1] */
   encodeFunc?: (pixels: Uint8Array[]) => number;
+  /** maximun sound frequency (hz), only used when encodeFunc not defined, defaults to 20000 */
+  maxFreq?: number;
   /** sampling rate [Hz], defaults to 44100Hz */
   sampleRate?: number;
   /** Beat Per Minute, defaults to 60 */
@@ -23,10 +25,11 @@ export type ImageToAudioOptions = {
  * @param [options.mimeType]
  * @param [options.encodeData] rebuild encode data, defaults arrange from left to right
  * @param [options.encodeFunc] transform pixel [r, g, b, a] to number range in [-1, 1]
+ * @param [options.maxFreq = 20000] maximun sound frequency (hz), only used when encodeFunc not defined, defaults to 20000
  * @param [options.sampleRate = 44100] sampling rate [Hz], defaults to 44100Hz
  * @param [options.bpm = 60] Beat Per Minute, defaults to 60
  * @param [options.beat = 1 / 4] beat, defaults to 1/4
- * @returns wav audio data(Blob)
+ * @returns
  */
 export function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptions) {
   const opts = {
@@ -52,6 +55,12 @@ export function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptio
   });
 
   encoder.encode([buffer]);
-  
-  return encoder.finish();
+  const blob = encoder.finish();
+
+  return {
+    imageData,
+    freqs,
+    buffer,
+    blob,
+  }
 }

@@ -3,12 +3,13 @@ import { DecodedImage } from "./decodeImage";
 export type EncodeImage2FreqsOptions = {
   /** rebuild encode data, defaults arrange from left to right */
   encodeData?: (data: DecodedImage) => Uint8Array[][];
-  /** transform pixel [r, g, b, a] to number range in [-1, 1] */
-  encodeFunc?: (pixels: Uint8Array[]) => number;
+  /** transform pixel [r, g, b, a] to sound frequency */
+  encodeFunc?: (pixels: Uint8Array[], maxFreq?: number) => number;
+  /** maximun sound frequency (hz), only used when encodeFunc not defined, defaults to 20000 */
+  maxFreq?: number;
 }
 
-function encodePixel(pixels: Uint8Array[]): number {
-  const maxFreq = 20000; // maximun sound frequency (hz)
+function encodePixel(pixels: Uint8Array[], maxFreq = 20000): number {
   let total = 0
   const maxSum = 255 * 3 * pixels.length
   for (let i = 0; i < pixels.length; i++) {
@@ -24,7 +25,8 @@ function encodePixel(pixels: Uint8Array[]): number {
  * encode image data to sound frequency array
  * @param data image data decode from image
  * @param [options.encodeData] rebuild encode data, defaults arrange from left to right
- * @param [options.encodeFunc] transform pixel [r, g, b, a] to number range in [-1, 1]
+ * @param [options.encodeFunc] transform pixel [r, g, b, a] to sound frequency
+ * @param [options.maxFreq = 20000] maximun sound frequency (hz), only used when encodeFunc not defined, defaults to 20000
  * @returns sound tone array
  */
 export function encodeImage2Freqs(data: DecodedImage, options?: EncodeImage2FreqsOptions) {
@@ -41,9 +43,9 @@ export function encodeImage2Freqs(data: DecodedImage, options?: EncodeImage2Freq
     }
   }
 
-  const encodeFunc = options.encodeFunc ?? encodePixel
+  const encodeFunc = options?.encodeFunc ?? encodePixel
 
-  const result = encodeData.map(pixels => encodeFunc(pixels))
+  const result = encodeData.map(pixels => encodeFunc(pixels, options?.maxFreq))
   
   return result;
 }
