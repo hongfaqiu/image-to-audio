@@ -1,4 +1,4 @@
-import imageToAudio from 'image-to-audio';
+import imageToAudio from '../src';
 import fs from 'fs';
 import path from 'path';
 import { expect } from 'chai';
