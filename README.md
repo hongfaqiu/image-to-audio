@@ -21,7 +21,7 @@ import { imageToAudio } from 'image-to-audio';
 const res = await fetch('../assets/mona.jpg')
 const buffer = await res.arrayBuffer()
 
-const blob = imageToAudio(buffer)
+const blob = imageToAudio(buffer).blob
 ```
 
 ### API
@@ -33,7 +33,16 @@ Or you could use the following apis to make up your own decode-encode function, 
 #### imageToAudio
 
 ```ts
-function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptions): Blob
+function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptions): {
+    imageData: {
+        data: Uint8Array[];
+        width: number;
+        height: number;
+    };
+    freqs: number[];
+    buffer: Float32Array;
+    blob: Blob;
+};
 
 type ImageToAudioOptions = {
     mimeType?: string;

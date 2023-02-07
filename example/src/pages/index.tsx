@@ -1,27 +1,37 @@
+import SoundCreater, { SoundCreaterParams } from '@/components/SoundCreater'
 import { IconGithubLogo } from '@douyinfe/semi-icons'
-import { Button, Image } from '@douyinfe/semi-ui'
+import { Col, Notification, Row, Spin } from '@douyinfe/semi-ui'
 import imageToAudio from 'image-to-audio'
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
 import Link from 'next/link'
+import { useState } from 'react'
+import { spawn } from 'threads'
+import styles from './index.module.scss';
+
+const SoundPlayer = dynamic(() => import('@/components/SoundPlayer'), { ssr: false })
 
 export default function Home() {
+  const [audio, setAudio] = useState<Blob>()
+  const [loading, setLoading] = useState(false)
 
-  const convertImage = async () => {
-    const res = await fetch('./fractal.jpg')
-    const buffer = await res.arrayBuffer()
-
-    const blob = imageToAudio(buffer)
-    
-    const src = window.URL.createObjectURL(blob)
-    const audio = new Audio()
-    audio.src = src
-    audio.controls = true
-
-    const audioControl = document.getElementById('audioControls')
-    if (!audioControl) return
-    if (audioControl.lastChild) audioControl.removeChild(audioControl.lastChild)
-    audioControl.appendChild(audio)
-
+  const convertImage = async (values: SoundCreaterParams) => {
+    setLoading(true)
+    try {
+      const res = await fetch(values.url)
+      const buffer = await res.arrayBuffer()
+      const func = await spawn<typeof imageToAudio>(new Worker(new URL('../utils/work.ts', import.meta.url)))
+  
+      const blob = (await func(buffer, values)).blob
+      setAudio(blob)
+      setLoading(false)
+    } catch (e) {
+      setLoading(false)
+      Notification.error({
+        title: 'Error fetching',
+        content: e
+      })
+    }
   }
 
   return (
@@ -32,22 +42,25 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
-        <h1>
+      <main className={styles.mainContainer}>
+        <h1 className={styles.header}>
           image-to-audio
           <Link target={'_blank'} href="https://github.com/hongfaqiu/image-to-audio" title="Visit GitHub repository" rel="noopener">
             <IconGithubLogo style={{ fontSize: 30 }} />
           </Link>
         </h1>
-        
-        <div >
-          <Image src="./fractal.jpg" alt='fractal' />
-          {/* <Image src="./mona.jpg" alt='mona' /> */}
-        </div>
+        <Row className={styles.content}>
+          <Col md={24} lg={12} className={styles.left}>
+            <SoundCreater onSubmit={convertImage} />
+          </Col>
 
-        <Button onClick={convertImage}>convert to audio</Button>
+          <Col md={24} lg={12} className={styles.right}>
+            <Spin wrapperClassName={styles.spin} spinning={loading} tip='Please wait'>
+              {!!audio && <SoundPlayer src={audio} />}
+            </Spin>
+          </Col>
+        </Row>
 
-        <div id="audioControls"></div>
       </main>
     </>
   )

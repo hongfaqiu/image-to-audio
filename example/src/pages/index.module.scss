@@ -1,0 +1,23 @@
+.mainContainer {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .header {
+    margin: 8px;
+  }
+  .content {
+    height: 100%;
+    margin: 8px;
+    .left, .right {
+      height: 100%;
+      padding: 20px;
+      overflow: auto;
+      border: 1px solid var(--semi-color-border);
+    }
+    .spin {
+      width: 100%;
+      min-height: 200px;
+    }
+    
+  }
+}

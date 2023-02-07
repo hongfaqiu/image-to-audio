@@ -1,0 +1,11 @@
+.soundPlayer {
+  .control {
+    margin-bottom: 10px;
+    :global {
+      .semi-button-content {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
