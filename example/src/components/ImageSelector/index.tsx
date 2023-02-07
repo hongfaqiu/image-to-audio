@@ -78,6 +78,10 @@ const ImageSelector: React.FC<ImageSelectorProps> = ({
             setValue(fileList[0]?.url)
           }
         }}
+        customRequest={({ onSuccess }) => {
+          // @ts-ignore
+          onSuccess();
+        }}
         afterUpload={(obj) => {
           setValue(obj.file.url)
           return {
