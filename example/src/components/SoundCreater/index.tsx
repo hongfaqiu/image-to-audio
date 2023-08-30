@@ -1,12 +1,12 @@
 import { Button, Form } from "@douyinfe/semi-ui";
 import { FormApi } from "@douyinfe/semi-ui/lib/es/form";
-import { ImageToAudioOptions } from "image-to-audio"
+import { ImageToAudioOptions, LeftToRightRGBOptions } from "image-to-audio"
 import { useCallback, useRef } from "react";
 import { ImageSelectorItem } from "../ImageSelector";
 
 export type SoundCreaterParams = {
   url: string;
-} & ImageToAudioOptions
+} & ImageToAudioOptions & LeftToRightRGBOptions
 
 export type SoundCreaterProps = {
   initValues?: SoundCreaterParams;

@@ -17,7 +17,7 @@
     "@types/react-dom": "18.0.10",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
-    "image-to-audio": "workspace:^1.0.0",
+    "image-to-audio": "workspace:*",
     "next": "13.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",

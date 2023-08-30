@@ -1,4 +1,4 @@
-import imageToAudio from "image-to-audio"
+import { imageToAudio, leftToRightRGB } from "image-to-audio"
 import { expose } from "threads/worker"
 
-expose(imageToAudio)
+expose((input, options) => imageToAudio(input, leftToRightRGB(options), options))

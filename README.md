@@ -18,24 +18,30 @@ Browser(umd) dont support yet.
 ### Usage
 
 ```ts
-import { imageToAudio } from 'image-to-audio';
+import { imageToAudio, leftToRightRGB } from 'image-to-audio';
 
 const res = await fetch('../assets/mona.jpg')
 const buffer = await res.arrayBuffer()
 
-const blob = imageToAudio(buffer).blob
+const blob = imageToAudio(buffer, leftToRightRGB()).blob
 ```
 
 ### API
 
 #### imageToAudio
 
-This api provides function to simply change image to audio, which will decode the image vertically from left to right and encode pixels to the digital analog signal.
+This api provides function to simply change image to audio, you must pass the `encodeImage2Freqs` parameter to convert the image into a series of sound frequencies.
 
-Or you could use the following apis to make up your own decode-encode function, reference the [code](./src/imageToAudio.ts).
+We provide some default functions to handle this process, such as [leftToRightRGB](####leftToRightRGB).
 
 ```ts
-function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptions): {
+/**
+ * @param input buffer can be any binary data container: ArrayBuffer | Buffer | Uint8Array | base64 string
+ * @param encodeImage2Freqs a function, encode image data to sound frequency array
+ * @param options
+ * @returns
+ */
+function imageToAudio(input: ImageInputTypes, encodeImage2Freqs: (data: DecodedImage) => number[], options?: ImageToAudioOptions): {
     imageData: {
         data: Uint8Array[];
         width: number;
@@ -47,18 +53,14 @@ function imageToAudio(input: ImageInputTypes, options?: ImageToAudioOptions): {
 };
 
 type ImageToAudioOptions = {
-    mimeType?: string;
-    /** rebuild encode data, defaults arrange from left to right */
-    encodeData?: (data: DecodedImage) => Uint8Array[][];
-    /** transform pixel [r, g, b, a] to number range in [-1, 1] */
-    encodeFunc?: (pixels: Uint8Array[]) => number;
-    /** sampling rate [Hz], defaults to 44100Hz */
-    sampleRate?: number;
-    /** Beat Per Minute, defaults to 60 */
-    bpm?: number;
-    /** beat, defaults to 1/4 */
-    beat?: number;
-};
+  mimeType?: string;
+  /** sampling rate [Hz], defaults to 44100Hz */
+  sampleRate?: number;
+  /** Beat Per Minute, defaults to 60 */
+  bpm?: number;
+  /** beat, defaults to 1/4 */
+  beat?: number;
+}
 
 type ImageInputTypes = ArrayBuffer | Buffer | Uint8Array | string;
 ```
@@ -82,21 +84,6 @@ type DecodedImage = {
     data: Uint8Array[];
     width: number;
     height: number;
-};
-```
-
-#### encodeImage2Freqs
-
-Provide a function encode image into number array, and then encode into sound's frequency array like [220, 440, 880, ...]
-
-```ts
-function encodeImage2Freqs(data: DecodedImage, options?: EncodeImage2FreqsOptions): number[];
-
-type EncodeImage2FreqsOptions = {
-    /** rebuild encode data, defaults arrange from left to right */
-    encodeData?: (data: DecodedImage) => Uint8Array[][];
-    /** transform pixel [r, g, b, a] to number range in [-1, 1] */
-    encodeFunc?: (pixels: Uint8Array[]) => number;
 };
 ```
 
@@ -138,6 +125,21 @@ type Freqs2AudioOptions = {
     /** seconds of the audio */
     seconds: number;
 };
+```
+
+#### leftToRightRGB
+
+Provide a function encode image into number array, which will decode the image vertically from left to right and then encode into sound's frequency array like [220, 440, 880, ...].
+
+Or you could use the following apis to make up your own decode-encode function, reference the [code](./src/encodeImage2Freqs/leftToRightRGB.ts).
+
+```ts
+function leftToRightRGB(options?: defaultFucOptions): (data: DecodedImage) => number[];
+
+type defaultFucOptions = {
+  /** maximun sound frequency (hz), only used when encodeFunc not defined, defaults to 20000 */
+  maxFreq?: number;
+}
 ```
 
 ## Test

@@ -21,7 +21,7 @@ export default function Home() {
     try {
       const res = await fetch(values.url)
       const buffer = await res.arrayBuffer()
-      const func = await spawn<typeof imageToAudio>(new Worker(new URL('../utils/work.ts', import.meta.url)))
+      const func = await spawn(new Worker(new URL('../utils/work.ts', import.meta.url)))
   
       const funcRes = await func(buffer, values)
       setResult(funcRes)

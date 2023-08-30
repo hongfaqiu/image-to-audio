@@ -9,7 +9,6 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "suppressImplicitAnyIndexErrors": true,
     "allowJs": true,
     "esModuleInterop": true,
     "declaration": true
