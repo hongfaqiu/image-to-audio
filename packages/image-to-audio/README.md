@@ -142,6 +142,21 @@ type defaultFucOptions = {
 }
 ```
 
+#### leftToRightRGB
+
+Provide a function encode image into number array, which will decode the image vertically from left to right and then encode into sound's frequency array like [220, 440, 880, ...].
+
+Or you could use the following apis to make up your own decode-encode function, reference the [code](./src/encodeImage2Freqs/leftToRightRGB.ts).
+
+```ts
+function leftToRightRGB(options?: defaultFucOptions): (data: DecodedImage) => number[];
+
+type defaultFucOptions = {
+  /** maximun sound frequency (hz), only used when encodeFunc not defined, defaults to 20000 */
+  maxFreq?: number;
+}
+```
+
 ## Test
 
 for node 18 run
