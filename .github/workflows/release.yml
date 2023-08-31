@@ -30,7 +30,7 @@ jobs:
         run: npm i -g npm@7 --registry=https://registry.npmjs.org
 
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build
         run: pnpm build:lib

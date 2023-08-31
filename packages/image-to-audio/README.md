@@ -32,7 +32,7 @@ const blob = imageToAudio(buffer, leftToRightRGB()).blob
 
 This api provides function to simply change image to audio, you must pass the `encodeImage2Freqs` parameter to convert the image into a series of sound frequencies.
 
-We provide some default functions to handle this process, such as [leftToRightRGB](####leftToRightRGB).
+We provide some default functions to handle this process, such as [leftToRightRGB](#lefttorightrgb).
 
 ```ts
 /**

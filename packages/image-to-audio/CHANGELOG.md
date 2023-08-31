@@ -1,3 +1,10 @@
+# image-to-audio [1.3.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.2.0...image-to-audio@1.3.0) (2023-08-30)
+
+
+### Features
+
+* use encodeImage2Freqs func as parameter ([caad385](https://github.com/hongfaqiu/image-to-audio/commit/caad38556dd51fa496871c7f7eac9b8cd59693bf))
+
 # image-to-audio [1.2.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.1.0...image-to-audio@1.2.0) (2023-02-07)
 
 
