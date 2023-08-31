@@ -142,19 +142,17 @@ type defaultFucOptions = {
 }
 ```
 
-#### leftToRightRGB
+#### ltoRVarianceToMelodic
 
-Provide a function encode image into number array, which will decode the image vertically from left to right and then encode into sound's frequency array like [220, 440, 880, ...].
-
-Or you could use the following apis to make up your own decode-encode function, reference the [code](./src/encodeImage2Freqs/leftToRightRGB.ts).
+Provide a function encode image into number array, which involves calculating the mean of the variances of RGB values in each column of an image, and allocating these values proportionally onto musical scales, such as C Major Scales, A Minor Scales and etc. Reference the [code](./src/encodeImage2Freqs/ltoRVarianceToMelodic.ts).
 
 ```ts
-function leftToRightRGB(options?: defaultFucOptions): (data: DecodedImage) => number[];
+function ltoRVarianceToMelodic(options?: LtoRVarianceToMelodicOptions): (data: DecodedImage) => number[];
 
-type defaultFucOptions = {
-  /** maximun sound frequency (hz), only used when encodeFunc not defined, defaults to 20000 */
-  maxFreq?: number;
-}
+type LtoRVarianceToMelodicOptions = {
+    /** an array includes the frequencies of a melodic scale, default to C_MAJOR */
+    melodicScales?: number[];
+};
 ```
 
 ## Test
