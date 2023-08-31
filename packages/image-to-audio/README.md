@@ -1,6 +1,6 @@
 # image-to-audio
 
-![image-to-audio](https://s1.ax1x.com/2023/02/07/pSg4d2t.png)
+<img width="1213" alt="image" src="https://github.com/RogerWQH2023/image-to-audio/assets/140324071/5b65a44c-e39c-4514-a9cd-1ec64736e3dd">
 
 Encode an image(PNG, GIF, BMP, JPEG, TIFF) into music
 
@@ -140,6 +140,19 @@ type defaultFucOptions = {
   /** maximun sound frequency (hz), only used when encodeFunc not defined, defaults to 20000 */
   maxFreq?: number;
 }
+```
+
+#### ltoRVarianceToMelodic
+
+Provide a function encode image into number array, which involves calculating the mean of the variances of RGB values in each column of an image, and allocating these values proportionally onto musical scales, such as C Major Scales, A Minor Scales and etc. Reference the [code](./src/encodeImage2Freqs/ltoRVarianceToMelodic.ts).
+
+```ts
+function ltoRVarianceToMelodic(options?: LtoRVarianceToMelodicOptions): (data: DecodedImage) => number[];
+
+type LtoRVarianceToMelodicOptions = {
+    /** an array includes the frequencies of a melodic scale, default to C_MAJOR */
+    melodicScales?: number[];
+};
 ```
 
 ## Test
