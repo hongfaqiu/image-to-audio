@@ -1,3 +1,10 @@
+# image-to-audio [1.4.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.3.0...image-to-audio@1.4.0) (2023-08-31)
+
+
+### Features
+
+* 增加一种声音生成方式 ([44bc664](https://github.com/hongfaqiu/image-to-audio/commit/44bc664131022d879bf3915d737afe43ee6ef2e9))
+
 # image-to-audio [1.3.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.2.0...image-to-audio@1.3.0) (2023-08-30)
 
 
