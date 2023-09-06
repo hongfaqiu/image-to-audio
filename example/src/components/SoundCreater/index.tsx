@@ -48,12 +48,13 @@ const SoundCreater: React.FC<SoundCreaterProps> = ({
           label={{ text: "Melodic Scales" }}
           rules={[{ required: true, message: "required error" }]}
         >
+          <Option value="ANCIENT_PENTATONIC">宫商角徵羽</Option>
           <Option value="C_MAJOR">C Major</Option>
           <Option value="C_HARMONIC_MAJOR">C Harmonic Major</Option>
           <Option value="C_MELODY_MAJOR">C Melody Major</Option>
           <Option value="A_MINOR">A Minor</Option>
           <Option value="A_HARMONIC_MINOR">A Harmonic Minor</Option>
-          <Option value="A_MELODY_MINOR">A Melody Minor Scales</Option>
+          <Option value="A_MELODY_MINOR">A Melody Minor Scales</Option>      
         </Form.Select>
       );
     }

@@ -2,6 +2,7 @@ import { expose } from "threads/worker";
 import { imageToAudio, leftToRightRGB } from "image-to-audio";
 import {
   ltoRVarianceToMelodic,
+  ANCIENT_PENTATONIC, 
   C_MAJOR,
   C_HARMONIC_MAJOR,
   C_MELODY_MAJOR,
@@ -36,6 +37,9 @@ expose((input, options) => {
       case "A_MELODY_MINOR":
         selectedMelodicScales = A_MELODY_MINOR;
         break;
+      case "ANCIENT_PENTATONIC":
+        selectedMelodicScales = ANCIENT_PENTATONIC;
+      break;
       default:
         selectedMelodicScales = C_MAJOR;
         break;

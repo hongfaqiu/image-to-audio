@@ -38,6 +38,12 @@ export const A_MELODY_MINOR = [
   1174.659, 1318.51, 1479.978, 1661.219,
 ];
 
+/** Ancient Pentatonic Scales from China convert to frequency */
+export const ANCIENT_PENTATONIC = [
+  261.626, 293.665, 329.628, 391.995, 440.0, 523.251, 587.33, 659.255, 783.991,
+  880.0, 1046.502, 1174.659, 1318.51, 1567.982, 1760.0,
+];
+
 export type LtoRVarianceToMelodicOptions = {
   /** an array includes the frequencies of a melodic scale, default to C_MAJOR */
   melodicScales?: number[];
