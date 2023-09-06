@@ -1,3 +1,10 @@
+# image-to-audio [1.5.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.4.0...image-to-audio@1.5.0) (2023-09-06)
+
+
+### Features
+
+* 添加宫商角徵羽音阶，同步更新测试样例 ([420431f](https://github.com/hongfaqiu/image-to-audio/commit/420431f638652d62eca98e79a0853b48a386909d))
+
 # image-to-audio [1.4.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.3.0...image-to-audio@1.4.0) (2023-08-31)
 
 
