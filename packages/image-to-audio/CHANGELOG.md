@@ -1,3 +1,10 @@
+# image-to-audio [1.6.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.5.0...image-to-audio@1.6.0) (2023-09-08)
+
+
+### Features
+
+* add download btn ([a24f073](https://github.com/hongfaqiu/image-to-audio/commit/a24f073b7e6d78c61521da5489c22d97d0b59f40))
+
 # image-to-audio [1.5.0](https://github.com/hongfaqiu/image-to-audio/compare/image-to-audio@1.4.0...image-to-audio@1.5.0) (2023-09-06)
 
 
