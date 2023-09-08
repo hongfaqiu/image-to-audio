@@ -6,10 +6,11 @@ import CursorPlugin from "wavesurfer.js/dist/plugin/wavesurfer.cursor.min";
 // @ts-ignore
 import SpectrogramPlugin from "wavesurfer.js/dist/plugin/wavesurfer.spectrogram.min";
 import { Button } from '@douyinfe/semi-ui';
-import { IconPause, IconPlay } from '@douyinfe/semi-icons';
+import { IconDownload, IconPause, IconPlay } from '@douyinfe/semi-icons';
+import { downloadWavBlob } from '@/utils/download';
 
 export type WaveSurferProps = {
-  src?: Blob | File;
+  src: Blob;
 }
 
 const SoundPlayer: React.FC<WaveSurferProps> = ({
@@ -108,6 +109,9 @@ const SoundPlayer: React.FC<WaveSurferProps> = ({
         <Button onClick={playPause} >
           {state.playing ? <IconPause/> : <IconPlay/> }
           {state.playing ? 'Pause' : 'Play' }
+        </Button>
+        <Button onClick={() => downloadWavBlob(src, 'sound.wav')} >
+          <IconDownload/>Download
         </Button>
       </div>
       <div ref={ref} />

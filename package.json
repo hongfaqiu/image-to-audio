@@ -9,7 +9,8 @@
   "type": "module",
   "scripts": {
     "build:lib": "pnpm run --dir packages/image-to-audio build",
-    "build:example": "pnpm run build:lib && pnpm run --dir example build",
+    "postinstall": "pnpm run build:lib",
+    "build:example": "pnpm run --dir example build",
     "test": "mocha",
     "release": "multi-semantic-release --sequential-init --ignore-private-packages=true"
   },
