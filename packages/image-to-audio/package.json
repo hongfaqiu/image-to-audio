@@ -5,6 +5,7 @@
   "type": "module",
   "source": "src/index.ts",
   "types": "./lib/index.d.ts",
+  "main": "./lib/index.cjs",
   "exports": {
     "types": "./lib/index.d.ts",
     "import": "./lib/index.modern.mjs",
